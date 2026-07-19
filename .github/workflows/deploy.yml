@@ -32,6 +32,8 @@ jobs:
 
       - name: Build with Astro
         run: npx astro build
+        env:
+          DEPLOY_MODE: github
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -4,7 +4,8 @@ import ToolCard from '../components/ToolCard.astro';
 import toolsData from '../data/tools.json';
 
 const tools = toolsData.tools;
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 
 // 按类别取热门工具
 const categories = ['writing', 'image', 'code', 'video', 'audio'];

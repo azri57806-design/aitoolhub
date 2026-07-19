@@ -1,6 +1,7 @@
 ---
 const { tool } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 const categoryLabels = {
   writing: '写作',
   image: '绘图',

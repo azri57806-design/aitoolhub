@@ -6,7 +6,8 @@ import Footer from '../components/Footer.astro';
 const siteName = 'AI 工具集';
 const fullTitle = title ? `${title} | ${siteName}` : `${siteName} — AI 工具导航与实用在线工具`;
 const desc = description || '发现最好用的 AI 工具，提供实用在线小工具。每日更新 AI 工具榜单，覆盖写作、绘图、编程、视频、音频等场景。';
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 ---
 <!doctype html>
 <html lang="zh-CN">

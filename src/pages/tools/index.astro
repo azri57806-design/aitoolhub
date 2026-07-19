@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 
 const tools = [
   { name: '字数统计器', desc: '统计中英文字数、字符数、行数、段落数，支持粘贴长文本', href: `${base}tools/word-counter`, icon: '📝' },

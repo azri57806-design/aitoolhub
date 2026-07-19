@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ToolCard from '../components/ToolCard.astro';
+import toolsData from '../data/tools.json';
+
+const tools = toolsData.tools;
+const lastUpdated = toolsData.lastUpdated;
+
+const categories = [
+  { id: 'all', label: '全部' },
+  { id: 'writing', label: '✍️ 写作' },
+  { id: 'image', label: '🎨 绘图' },
+  { id: 'code', label: '💻 编程' },
+  { id: 'video', label: '🎬 视频' },
+  { id: 'audio', label: '🎵 音频' },
+  { id: 'productivity', label: '⚡ 效率' },
+  { id: 'search', label: '🔍 搜索' },
+];
+
+const priceFilters = [
+  { id: 'all', label: '全部' },
+  { id: 'free', label: '免费' },
+  { id: 'freemium', label: '免费增值' },
+  { id: 'paid', label: '付费' },
+];
+
+// 结构化数据
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: tools.map((tool, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: tool.name,
+    url: tool.url,
+  })),
+};
+---
+<Layout title="AI 工具榜单" description={`收录 ${tools.length}+ 款 AI 工具，覆盖写作、绘图、编程、视频、音频等场景。每日更新。`}>
+  <section class="bg-gradient-to-br from-slate-100 to-brand-50 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+      <h1 class="text-3xl font-bold text-slate-900">AI 工具榜单</h1>
+      <p class="mt-2 text-slate-600">收录 {tools.length} 款主流 AI 工具，按场景分类，每日更新 · 最后更新：{lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <!-- 筛选器 -->
+    <div class="mb-6 space-y-3">
+      <div class="flex flex-wrap gap-2" id="category-filter">
+        {categories.map((cat) => (
+          <button
+            data-cat={cat.id}
+            class="filter-btn px-3 py-1.5 rounded-full text-sm border transition"
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs text-slate-400">价格：</span>
+        {priceFilters.map((p) => (
+          <button
+            data-price={p.id}
+            class="price-btn px-2.5 py-1 rounded-full text-xs border transition"
+          >
+            {p.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- 工具列表 -->
+    <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {tools.map((tool) => (
+        <div
+          class="tool-item"
+          data-category={tool.category}
+          data-price={tool.price}
+        >
+          <ToolCard tool={tool} />
+        </div>
+      ))}
+    </div>
+
+    <div id="no-results" class="hidden text-center py-12 text-slate-400">
+      没有符合条件的工具
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(itemList)} />
+</Layout>
+
+<script is:inline>
+  const tools = document.querySelectorAll('.tool-item');
+  const catBtns = document.querySelectorAll('.filter-btn');
+  const priceBtns = document.querySelectorAll('.price-btn');
+  const noResults = document.getElementById('no-results');
+  let activeCat = 'all';
+  let activePrice = 'all';
+
+  function setActive(btns, activeId, dataAttr) {
+    btns.forEach(b => {
+      const isActive = b.dataset[dataAttr] === activeId;
+      b.className = b.className.replace(/bg-brand-600 text-white border-brand-600/g, '').trim();
+      b.className = b.className.replace(/bg-slate-100 text-slate-600 border-slate-200/g, '').trim();
+      if (isActive) {
+        b.classList.add('bg-brand-600', 'text-white', 'border-brand-600');
+      } else {
+        b.classList.add('bg-slate-100', 'text-slate-600', 'border-slate-200');
+      }
+    });
+  }
+
+  function filter() {
+    let visible = 0;
+    tools.forEach(tool => {
+      const cat = tool.dataset.category;
+      const price = tool.dataset.price;
+      const show = (activeCat === 'all' || activeCat === cat) && (activePrice === 'all' || activePrice === price);
+      tool.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  catBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCat = btn.dataset.cat;
+      setActive(catBtns, activeCat, 'cat');
+      filter();
+    });
+  });
+
+  priceBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activePrice = btn.dataset.price;
+      setActive(priceBtns, activePrice, 'price');
+      filter();
+    });
+  });
+
+  // 初始化默认状态
+  setActive(catBtns, 'all', 'cat');
+  setActive(priceBtns, 'all', 'price');
+
+  // 支持 URL ?cat= 参数
+  const params = new URLSearchParams(location.search);
+  const initCat = params.get('cat');
+  if (initCat) {
+    activeCat = initCat;
+    setActive(catBtns, activeCat, 'cat');
+    filter();
+  }
+</script>

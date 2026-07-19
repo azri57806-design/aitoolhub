@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+
+const tools = [
+  { name: '字数统计器', desc: '统计中英文字数、字符数、行数、段落数，支持粘贴长文本', href: `${base}tools/word-counter`, icon: '📝' },
+  { name: 'UUID 生成器', desc: '批量生成 UUID v4 / v7，可一键复制', href: `${base}tools/uuid`, icon: '🆔' },
+  { name: 'JSON 格式化', desc: 'JSON 美化、压缩、校验，支持错误定位', href: `${base}tools/json`, icon: '🔧' },
+  { name: 'Base64 编解码', desc: '文本与 Base64 互转，支持 UTF-8 中文', href: `${base}tools/base64`, icon: '🔐' },
+  { name: '时间戳转换', desc: 'Unix 时间戳与日期互转，支持毫秒', href: `${base}tools/timestamp`, icon: '⏰' },
+  { name: '颜色选择器', desc: 'HEX / RGB / HSL 颜色转换与选择', href: `${base}tools/color`, icon: '🎨' },
+];
+---
+<Layout title="在线工具" description="免费在线小工具合集，纯前端运行，数据不上传，免登录。">
+  <section class="bg-gradient-to-br from-slate-100 to-brand-50 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+      <h1 class="text-3xl font-bold text-slate-900">🛠️ 在线工具箱</h1>
+      <p class="mt-2 text-slate-600">免费 · 免登录 · 纯前端运行 · 数据不上传</p>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {tools.map((tool) => (
+        <a href={tool.href} class="group block bg-white rounded-xl border border-slate-200 p-6 hover:shadow-lg hover:border-brand-300 transition">
+          <div class="text-4xl mb-3">{tool.icon}</div>
+          <h3 class="font-semibold text-slate-900 group-hover:text-brand-600">{tool.name}</h3>
+          <p class="mt-1 text-sm text-slate-500">{tool.desc}</p>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
+      <strong>说明：</strong>所有工具均在你浏览器本地运行，不上传任何数据。如需更多工具或反馈问题，欢迎在 GitHub 提 Issue。
+    </div>
+  </section>
+</Layout>

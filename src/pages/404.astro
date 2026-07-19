@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Layout title="页面未找到">
+  <section class="max-w-3xl mx-auto px-4 py-24 text-center">
+    <div class="text-6xl mb-4">🤖</div>
+    <h1 class="text-3xl font-bold text-slate-900">404 — 页面未找到</h1>
+    <p class="mt-2 text-slate-500">这个页面可能已经被移动或不存在。</p>
+    <a href={`${base}`} class="mt-6 inline-block px-5 py-2.5 bg-brand-600 text-white rounded-lg hover:bg-brand-700">返回首页</a>
+  </section>
+</Layout>

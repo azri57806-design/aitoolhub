@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="字数统计器" description="在线统计中英文字数、字符数、行数、段落数。纯前端运行，数据不上传。">
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <a href={`${import.meta.env.BASE_URL}tools`} class="text-sm text-brand-600 hover:text-brand-700">← 返回工具列表</a>
+    <h1 class="mt-2 text-3xl font-bold text-slate-900">📝 字数统计器</h1>
+    <p class="mt-1 text-slate-500">统计中英文字数、字符数、行数、段落数。数据不上传。</p>
+
+    <div class="mt-6">
+      <textarea
+        id="input"
+        rows="12"
+        placeholder="在这里粘贴或输入文本..."
+        class="w-full p-4 border border-slate-300 rounded-lg focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none resize-y font-mono text-sm"
+      ></textarea>
+    </div>
+
+    <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div class="bg-white border border-slate-200 rounded-lg p-3 text-center">
+        <div class="text-2xl font-bold text-brand-600" id="chars">0</div>
+        <div class="text-xs text-slate-500 mt-1">总字符数</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-3 text-center">
+        <div class="text-2xl font-bold text-brand-600" id="charsNoSpace">0</div>
+        <div class="text-xs text-slate-500 mt-1">不含空格</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-3 text-center">
+        <div class="text-2xl font-bold text-brand-600" id="words">0</div>
+        <div class="text-xs text-slate-500 mt-1">单词数</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-3 text-center">
+        <div class="text-2xl font-bold text-brand-600" id="chinese">0</div>
+        <div class="text-xs text-slate-500 mt-1">中文字数</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-3 text-center">
+        <div class="text-2xl font-bold text-brand-600" id="lines">0</div>
+        <div class="text-xs text-slate-500 mt-1">行数</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-3 text-center">
+        <div class="text-2xl font-bold text-brand-600" id="paragraphs">0</div>
+        <div class="text-xs text-slate-500 mt-1">段落数</div>
+      </div>
+    </div>
+
+    <div class="mt-4 flex gap-2">
+      <button id="clear-btn" class="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">清空</button>
+      <button id="copy-btn" class="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">复制文本</button>
+    </div>
+  </section>
+
+  <script is:inline>
+    const input = document.getElementById('input');
+    const els = {
+      chars: document.getElementById('chars'),
+      charsNoSpace: document.getElementById('charsNoSpace'),
+      words: document.getElementById('words'),
+      chinese: document.getElementById('chinese'),
+      lines: document.getElementById('lines'),
+      paragraphs: document.getElementById('paragraphs'),
+    };
+
+    function count() {
+      const text = input.value;
+      els.chars.textContent = text.length;
+      els.charsNoSpace.textContent = text.replace(/\s/g, '').length;
+      // 中文字符
+      const cn = text.match(/[\u4e00-\u9fa5]/g);
+      els.chinese.textContent = cn ? cn.length : 0;
+      // 英文单词 + 中文（按中文字算一个"词"）
+      const en = text.match(/[a-zA-Z]+/g);
+      els.words.textContent = (en ? en.length : 0) + (cn ? cn.length : 0);
+      // 行数
+      els.lines.textContent = text === '' ? 0 : text.split('\n').length;
+      // 段落（以空行分隔）
+      const paras = text.split(/\n\s*\n/).filter(p => p.trim().length > 0);
+      els.paragraphs.textContent = paras.length;
+    }
+
+    input.addEventListener('input', count);
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      input.value = '';
+      count();
+      input.focus();
+    });
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      navigator.clipboard.writeText(input.value).then(() => {
+        const btn = document.getElementById('copy-btn');
+        const original = btn.textContent;
+        btn.textContent = '已复制 ✓';
+        setTimeout(() => btn.textContent = original, 1500);
+      });
+    });
+  </script>
+</Layout>

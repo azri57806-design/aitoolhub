@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Base64 编解码" description="在线 Base64 编码与解码，支持 UTF-8 中文。纯前端运行，数据不上传。">
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <a href={`${import.meta.env.BASE_URL}tools`} class="text-sm text-brand-600 hover:text-brand-700">← 返回工具列表</a>
+    <h1 class="mt-2 text-3xl font-bold text-slate-900">🔐 Base64 编解码</h1>
+    <p class="mt-1 text-slate-500">文本与 Base64 互转，完美支持 UTF-8 中文。</p>
+
+    <div class="mt-6 flex gap-2">
+      <button id="encode-btn" class="px-4 py-1.5 bg-brand-600 text-white rounded text-sm hover:bg-brand-700">↓ 编码</button>
+      <button id="decode-btn" class="px-4 py-1.5 bg-brand-600 text-white rounded text-sm hover:bg-brand-700">↑ 解码</button>
+      <button id="swap-btn" class="px-4 py-1.5 border border-slate-300 rounded text-sm hover:bg-slate-50">⇅ 交换</button>
+      <button id="clear-btn" class="px-4 py-1.5 border border-slate-300 rounded text-sm hover:bg-slate-50">清空</button>
+    </div>
+
+    <div class="mt-3 grid grid-cols-1 gap-3">
+      <div>
+        <label class="text-xs text-slate-500">输入（文本或 Base64）</label>
+        <textarea id="input" rows="5" placeholder="输入文本或 Base64 字符串..." class="w-full mt-1 p-3 border border-slate-300 rounded-lg focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none font-mono text-sm resize-y"></textarea>
+      </div>
+      <div>
+        <label class="text-xs text-slate-500">输出</label>
+        <textarea id="output" rows="5" readonly placeholder="结果..." class="w-full mt-1 p-3 border border-slate-300 rounded-lg bg-slate-50 font-mono text-sm resize-y"></textarea>
+      </div>
+    </div>
+
+    <div class="mt-3 flex items-center gap-2">
+      <button id="copy-btn" class="px-4 py-1.5 border border-slate-300 rounded text-sm hover:bg-slate-50">复制结果</button>
+      <span id="status" class="text-sm text-slate-500"></span>
+    </div>
+  </section>
+
+  <script is:inline>
+    const input = document.getElementById('input');
+    const output = document.getElementById('output');
+    const status = document.getElementById('status');
+
+    function encodeBase64(str) {
+      // 处理 UTF-8 中文
+      return btoa(unescape(encodeURIComponent(str)));
+    }
+    function decodeBase64(str) {
+      return decodeURIComponent(escape(atob(str)));
+    }
+
+    document.getElementById('encode-btn').addEventListener('click', () => {
+      try {
+        if (!input.value) { status.textContent = '请输入文本'; status.className = 'text-sm text-rose-600'; return; }
+        output.value = encodeBase64(input.value);
+        status.textContent = '✓ 编码成功';
+        status.className = 'text-sm text-green-600';
+      } catch (e) {
+        status.textContent = '✗ ' + e.message;
+        status.className = 'text-sm text-rose-600';
+      }
+    });
+
+    document.getElementById('decode-btn').addEventListener('click', () => {
+      try {
+        if (!input.value) { status.textContent = '请输入 Base64'; status.className = 'text-sm text-rose-600'; return; }
+        output.value = decodeBase64(input.value.trim());
+        status.textContent = '✓ 解码成功';
+        status.className = 'text-sm text-green-600';
+      } catch (e) {
+        status.textContent = '✗ 不是有效的 Base64';
+        status.className = 'text-sm text-rose-600';
+      }
+    });
+
+    document.getElementById('swap-btn').addEventListener('click', () => {
+      if (!output.value) return;
+      input.value = output.value;
+      output.value = '';
+      status.textContent = '';
+    });
+
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      if (!output.value) return;
+      navigator.clipboard.writeText(output.value).then(() => {
+        const btn = document.getElementById('copy-btn');
+        const original = btn.textContent;
+        btn.textContent = '已复制 ✓';
+        setTimeout(() => btn.textContent = original, 1500);
+      });
+    });
+
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      input.value = '';
+      output.value = '';
+      status.textContent = '';
+      input.focus();
+    });
+  </script>
+</Layout>

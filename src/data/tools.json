@@ -1,0 +1,239 @@
+{
+  "lastUpdated": "2026-07-19",
+  "tools": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "category": "writing",
+      "price": "freemium",
+      "description": "OpenAI 推出的对话式 AI 助手，可用于写作、编程、分析、问答等场景，GPT-5 模型支持多模态与长上下文。",
+      "url": "https://chat.openai.com",
+      "tags": ["对话", "写作", "编程", "OpenAI"]
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "category": "writing",
+      "price": "freemium",
+      "description": "Anthropic 出品的对话 AI，擅长长文本理解、写作与代码生成，以安全与可控著称。",
+      "url": "https://claude.ai",
+      "tags": ["对话", "写作", "Anthropic"]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "category": "writing",
+      "price": "freemium",
+      "description": "Google DeepMind 的多模态 AI 助手，深度集成 Google 生态，支持文本、图片、视频、代码。",
+      "url": "https://gemini.google.com",
+      "tags": ["对话", "多模态", "Google"]
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "category": "writing",
+      "price": "free",
+      "description": "字节跳动推出的 AI 助手，支持文本、语音、图像交互，集成抖音生态，国内可直连使用。",
+      "url": "https://www.doubao.com",
+      "tags": ["对话", "字节", "国内"]
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "category": "writing",
+      "price": "freemium",
+      "description": "月之暗面推出的长文本 AI 助手，擅长超长文档处理与分析，支持 200 万字上下文。",
+      "url": "https://kimi.moonshot.cn",
+      "tags": ["长文本", "月之暗面", "国内"]
+    },
+    {
+      "id": "wenxin",
+      "name": "文心一言",
+      "category": "writing",
+      "price": "freemium",
+      "description": "百度推出的中文大模型对话助手，接入百度搜索与文心生态。",
+      "url": "https://yiyan.baidu.com",
+      "tags": ["百度", "对话", "国内"]
+    },
+    {
+      "id": "tongyi",
+      "name": "通义千问",
+      "category": "writing",
+      "price": "freemium",
+      "description": "阿里云推出的大模型，支持文本、代码、图像、音频生成，通义系列覆盖企业全场景。",
+      "url": "https://tongyi.aliyun.com",
+      "tags": ["阿里", "对话", "国内"]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "category": "writing",
+      "price": "free",
+      "description": "深度求索推出的开源大模型系列，推理能力强，V3 与 R1 模型开源免费可用。",
+      "url": "https://chat.deepseek.com",
+      "tags": ["开源", "推理", "国内"]
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "category": "image",
+      "price": "paid",
+      "description": "业界领先的 AI 绘图工具，以艺术性与画面质感著称，V7 模型进一步提升细节与一致性。",
+      "url": "https://www.midjourney.com",
+      "tags": ["绘图", "艺术", "付费"]
+    },
+    {
+      "id": "stable-diffusion",
+      "name": "Stable Diffusion",
+      "category": "image",
+      "price": "free",
+      "description": "开源图像生成模型，支持本地部署与微调，社区生态丰富，ComfyUI 与 WebUI 工具链成熟。",
+      "url": "https://stability.ai",
+      "tags": ["绘图", "开源", "本地"]
+    },
+    {
+      "id": "dall-e",
+      "name": "DALL·E 3",
+      "category": "image",
+      "price": "freemium",
+      "description": "OpenAI 的图像生成模型，集成于 ChatGPT 中，文字理解能力强，画面精准。",
+      "url": "https://openai.com/dall-e-3",
+      "tags": ["绘图", "OpenAI"]
+    },
+    {
+      "id": "jimeng",
+      "name": "即梦 AI",
+      "category": "image",
+      "price": "freemium",
+      "description": "字节跳动推出的中文 AI 绘图与视频生成平台，支持文生图、图生视频，国内直连。",
+      "url": "https://jimeng.jianying.com",
+      "tags": ["绘图", "字节", "国内"]
+    },
+    {
+      "id": "copilot",
+      "name": "GitHub Copilot",
+      "category": "code",
+      "price": "paid",
+      "description": "GitHub 与 OpenAI 合作的 AI 编程助手，集成主流 IDE，支持代码补全、对话、PR 生成。",
+      "url": "https://github.com/features/copilot",
+      "tags": ["编程", "GitHub", "IDE"]
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "category": "code",
+      "price": "freemium",
+      "description": "AI 原生代码编辑器，深度集成大模型，支持项目级代码理解、生成与重构，开发者首选。",
+      "url": "https://cursor.com",
+      "tags": ["编程", "编辑器", "AI"]
+    },
+    {
+      "id": "codeium",
+      "name": "Codeium",
+      "category": "code",
+      "price": "freemium",
+      "description": "免费的 AI 编程助手，支持 70+ 编程语言与主流 IDE，企业版可本地部署。",
+      "url": "https://codeium.com",
+      "tags": ["编程", "免费", "IDE"]
+    },
+    {
+      "id": "trae",
+      "name": "Trae",
+      "category": "code",
+      "price": "free",
+      "description": "字节跳动推出的 AI IDE，集成 Claude 与 DeepSeek 模型，国内可免费使用。",
+      "url": "https://www.trae.cn",
+      "tags": ["编程", "字节", "国内"]
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "category": "video",
+      "price": "freemium",
+      "description": "AI 视频生成与编辑平台，Gen-3 模型支持文本/图像生成高质量视频，专业创作者首选。",
+      "url": "https://runwayml.com",
+      "tags": ["视频", "生成", "专业"]
+    },
+    {
+      "id": "sora",
+      "name": "Sora",
+      "category": "video",
+      "price": "paid",
+      "description": "OpenAI 的视频生成模型，支持文本生成最长 60 秒高清视频，物理理解能力领先。",
+      "url": "https://openai.com/sora",
+      "tags": ["视频", "OpenAI"]
+    },
+    {
+      "id": "kling",
+      "name": "可灵 AI",
+      "category": "video",
+      "price": "freemium",
+      "description": "快手推出的视频生成模型，支持文生视频、图生视频，国内可用，效果领先。",
+      "url": "https://klingai.com",
+      "tags": ["视频", "快手", "国内"]
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "category": "video",
+      "price": "freemium",
+      "description": "AI 短视频生成工具，擅长创意视频与特效，操作简单，适合社交媒体内容创作。",
+      "url": "https://pika.art",
+      "tags": ["视频", "创意"]
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "category": "audio",
+      "price": "freemium",
+      "description": "AI 音乐生成平台，输入提示词即可生成完整带词歌曲，V4 模型音质大幅提升。",
+      "url": "https://suno.com",
+      "tags": ["音乐", "生成"]
+    },
+    {
+      "id": "udio",
+      "name": "Udio",
+      "category": "audio",
+      "price": "freemium",
+      "description": "AI 音乐生成工具，由前 Google DeepMind 团队打造，音质与创作控制力出色。",
+      "url": "https://www.udio.com",
+      "tags": ["音乐", "生成"]
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "category": "audio",
+      "price": "freemium",
+      "description": "领先的 AI 语音合成与克隆平台，支持 30+ 语言，音色自然，支持实时配音。",
+      "url": "https://elevenlabs.io",
+      "tags": ["语音", "克隆", "TTS"]
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "category": "productivity",
+      "price": "paid",
+      "description": "集成于 Notion 的 AI 助手，支持写作、总结、翻译、问答，与笔记工作流深度结合。",
+      "url": "https://www.notion.so/product/ai",
+      "tags": ["效率", "笔记", "协作"]
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "category": "productivity",
+      "price": "freemium",
+      "description": "AI 驱动的演示文稿与文档生成工具，输入主题即可生成精美 PPT、网页与文档。",
+      "url": "https://gamma.app",
+      "tags": ["PPT", "演示", "效率"]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "category": "search",
+      "price": "freemium",
+      "description": "AI 驱动的对话式搜索引擎，实时联网检索，回答带引用源，适合研究与事实查询。",
+      "url": "https://www.perplexity.ai",
+      "tags": ["搜索", "研究", "联网"]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+---
+const { tool } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const categoryLabels = {
+  writing: '写作',
+  image: '绘图',
+  code: '编程',
+  video: '视频',
+  audio: '音频',
+  productivity: '效率',
+  search: '搜索',
+};
+const priceLabels = {
+  free: '免费',
+  freemium: '免费增值',
+  paid: '付费',
+};
+---
+<a
+  href={tool.url}
+  target="_blank"
+  rel="noopener nofollow sponsored"
+  class="group block bg-white rounded-xl border border-slate-200 p-4 hover:shadow-lg hover:border-brand-300 transition"
+>
+  <div class="flex items-start gap-3">
+    <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-brand-100 to-brand-500 flex items-center justify-center text-white font-bold text-lg">
+      {tool.name.charAt(0)}
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 flex-wrap">
+        <h3 class="font-semibold text-slate-900 group-hover:text-brand-600">{tool.name}</h3>
+        <span class="text-xs px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">{categoryLabels[tool.category] || tool.category}</span>
+        {tool.price && (
+          <span class={`text-xs px-1.5 py-0.5 rounded ${
+            tool.price === 'free' ? 'bg-green-100 text-green-700' :
+            tool.price === 'freemium' ? 'bg-amber-100 text-amber-700' :
+            'bg-rose-100 text-rose-700'
+          }`}>{priceLabels[tool.price] || tool.price}</span>
+        )}
+      </div>
+      <p class="mt-1 text-sm text-slate-600 line-clamp-2">{tool.description}</p>
+      {tool.tags && tool.tags.length > 0 && (
+        <div class="mt-2 flex flex-wrap gap-1">
+          {tool.tags.slice(0, 3).map((tag) => (
+            <span class="text-xs text-slate-400">#{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</a>

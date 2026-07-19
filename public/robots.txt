@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://azri57806-design.github.io/aitoolhub/sitemap.xml

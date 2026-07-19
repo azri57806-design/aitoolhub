@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="时间戳转换" description="Unix 时间戳与日期时间互转工具，支持秒和毫秒。">
+  <section class="max-w-3xl mx-auto px-4 py-8">
+    <a href={`${import.meta.env.BASE_URL}tools`} class="text-sm text-brand-600 hover:text-brand-700">← 返回工具列表</a>
+    <h1 class="mt-2 text-3xl font-bold text-slate-900">⏰ 时间戳转换</h1>
+    <p class="mt-1 text-slate-500">Unix 时间戳与日期时间互转，支持秒 / 毫秒。</p>
+
+    <div class="mt-6 bg-white border border-slate-200 rounded-lg p-4 space-y-4">
+      <div>
+        <label class="text-sm text-slate-600">当前时间戳</label>
+        <div class="mt-1 flex items-center gap-2">
+          <code id="now-ts" class="font-mono text-lg text-brand-600"></code>
+          <button id="copy-now" class="text-xs text-brand-600 hover:text-brand-700">复制</button>
+          <label class="ml-auto text-xs text-slate-500 flex items-center gap-1">
+            <input id="auto-refresh" type="checkbox" checked class="rounded" /> 自动刷新
+          </label>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-100 pt-4">
+        <label class="text-sm text-slate-600">时间戳 → 日期</label>
+        <div class="mt-1 flex flex-wrap gap-2">
+          <input id="ts-input" type="number" placeholder="输入时间戳..." class="flex-1 min-w-[200px] border border-slate-300 rounded px-3 py-2 text-sm font-mono" />
+          <select id="ts-unit" class="border border-slate-300 rounded px-2 py-2 text-sm">
+            <option value="s">秒</option>
+            <option value="ms">毫秒</option>
+          </select>
+          <button id="ts-to-date" class="px-4 py-2 bg-brand-600 text-white rounded text-sm hover:bg-brand-700">转换</button>
+        </div>
+        <div id="ts-result" class="mt-2 text-sm text-slate-700"></div>
+      </div>
+
+      <div class="border-t border-slate-100 pt-4">
+        <label class="text-sm text-slate-600">日期 → 时间戳</label>
+        <div class="mt-1 flex flex-wrap gap-2">
+          <input id="date-input" type="datetime-local" class="flex-1 min-w-[200px] border border-slate-300 rounded px-3 py-2 text-sm" />
+          <button id="date-to-ts" class="px-4 py-2 bg-brand-600 text-white rounded text-sm hover:bg-brand-700">转换</button>
+        </div>
+        <div id="date-result" class="mt-2 text-sm text-slate-700 font-mono"></div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function fmtDate(d) {
+      return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+
+    function updateNow() {
+      const ts = Math.floor(Date.now() / 1000);
+      const tsMs = Date.now();
+      document.getElementById('now-ts').textContent = `${ts} (秒) / ${tsMs} (毫秒)`;
+    }
+    updateNow();
+    let timer = setInterval(updateNow, 1000);
+    document.getElementById('auto-refresh').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        timer = setInterval(updateNow, 1000);
+      } else {
+        clearInterval(timer);
+      }
+    });
+
+    document.getElementById('copy-now').addEventListener('click', () => {
+      const ts = Math.floor(Date.now() / 1000);
+      navigator.clipboard.writeText(String(ts)).then(() => {
+        const btn = document.getElementById('copy-now');
+        const original = btn.textContent;
+        btn.textContent = '已复制 ✓';
+        setTimeout(() => btn.textContent = original, 1500);
+      });
+    });
+
+    document.getElementById('ts-to-date').addEventListener('click', () => {
+      const ts = document.getElementById('ts-input').value.trim();
+      const unit = document.getElementById('ts-unit').value;
+      const result = document.getElementById('ts-result');
+      if (!ts) { result.textContent = '请输入时间戳'; return; }
+      const ms = unit === 's' ? parseInt(ts) * 1000 : parseInt(ts);
+      const d = new Date(ms);
+      if (isNaN(d.getTime())) { result.textContent = '✗ 无效的时间戳'; result.className = 'mt-2 text-sm text-rose-600'; return; }
+      result.textContent = `✓ ${fmtDate(d)} (本地时间)`;
+      result.className = 'mt-2 text-sm text-green-600';
+    });
+
+    document.getElementById('date-to-ts').addEventListener('click', () => {
+      const val = document.getElementById('date-input').value;
+      const result = document.getElementById('date-result');
+      if (!val) { result.textContent = '请选择日期'; return; }
+      const d = new Date(val);
+      const ts = Math.floor(d.getTime() / 1000);
+      const tsMs = d.getTime();
+      result.innerHTML = `秒: ${ts}<br>毫秒: ${tsMs}`;
+    });
+  </script>
+</Layout>

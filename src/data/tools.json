@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-07-19",
+  "lastUpdated": "2026-07-20",
   "tools": [
     {
       "id": "chatgpt",
       "name": "ChatGPT",
       "category": "writing",
       "price": "freemium",
-      "description": "OpenAI 推出的对话式 AI 助手，可用于写作、编程、分析、问答等场景，GPT-5 模型支持多模态与长上下文。",
+      "description": "OpenAI 推出的对话式 AI 助手，可用于写作、编程、分析、问答等场景，GPT-5.6 模型支持多模态与长上下文，内置 Work 智能体与 Codex 编程助手。",
       "url": "https://chat.openai.com",
       "tags": ["对话", "写作", "编程", "OpenAI"]
     },
@@ -234,6 +234,17 @@
       "description": "AI 驱动的对话式搜索引擎，实时联网检索，回答带引用源，适合研究与事实查询。",
       "url": "https://www.perplexity.ai",
       "tags": ["搜索", "研究", "联网"]
+    },
+    {
+      "id": "muse-image",
+      "name": "Muse Image",
+      "category": "image",
+      "price": "freemium",
+      "description": "Meta 自研图像生成模型，支持复杂提示词推理、文字精准渲染、照片编辑与一键创意预设，免费集成于 Meta AI。",
+      "url": "https://ai.meta.com/meta-ai/",
+      "tags": ["绘图", "Meta", "免费"],
+      "features": ["复杂提示词推理", "文字精准渲染", "照片编辑与消除", "Presets 一键创意", "房间重设计"],
+      "addedDate": "2026-07-20"
     }
   ]
 }

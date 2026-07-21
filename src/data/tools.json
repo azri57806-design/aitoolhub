@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-20",
+  "lastUpdated": "2026-07-21",
   "tools": [
     {
       "id": "chatgpt",
@@ -42,7 +42,7 @@
       "name": "Kimi",
       "category": "writing",
       "price": "freemium",
-      "description": "月之暗面推出的长文本 AI 助手，擅长超长文档处理与分析，支持 200 万字上下文。",
+      "description": "月之暗面推出的长文本 AI 助手，新一代 Kimi K3 模型擅长超长文档处理与分析，支持 200 万字上下文。",
       "url": "https://kimi.moonshot.cn",
       "tags": ["长文本", "月之暗面", "国内"]
     },
@@ -245,6 +245,28 @@
       "tags": ["绘图", "Meta", "免费"],
       "features": ["复杂提示词推理", "文字精准渲染", "照片编辑与消除", "Presets 一键创意", "房间重设计"],
       "addedDate": "2026-07-20"
+    },
+    {
+      "id": "wps-lingxi",
+      "name": "WPS 灵犀",
+      "category": "productivity",
+      "price": "freemium",
+      "description": "金山办公推出的 AI 办公智能体，深度集成 WPS 原生能力，可理解复杂办公任务并直接交付可编辑的 PPT、保留公式的表格与可审阅文档。",
+      "url": "https://lingxi.wps.cn/",
+      "tags": ["办公", "智能体", "WPS", "国内"],
+      "features": ["自然语言理解办公任务", "直接生成可编辑 PPT", "保留公式生成表格", "文档智能审阅", "多场景办公模板"],
+      "addedDate": "2026-07-21"
+    },
+    {
+      "id": "abot-world-studio",
+      "name": "ABot-World Studio",
+      "category": "video",
+      "price": "free",
+      "description": "高德推出的通用世界模型工坊，输入文字或图片即可生成可实时交互、可探索的 AI 虚拟世界，支持导出视频与 3DGS 空间资产。",
+      "url": "https://abot-world.amap.com/",
+      "tags": ["视频", "3D", "世界模型", "高德", "国内"],
+      "features": ["文/图生成交互世界", "实时 WASD 漫游探索", "时空任意门场景切换", "导出视频与 3DGS", "消费级 GPU 本地部署"],
+      "addedDate": "2026-07-21"
     }
   ]
 }

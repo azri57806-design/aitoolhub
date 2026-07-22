@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-21",
+  "lastUpdated": "2026-07-22",
   "tools": [
     {
       "id": "chatgpt",
@@ -267,6 +267,28 @@
       "tags": ["视频", "3D", "世界模型", "高德", "国内"],
       "features": ["文/图生成交互世界", "实时 WASD 漫游探索", "时空任意门场景切换", "导出视频与 3DGS", "消费级 GPU 本地部署"],
       "addedDate": "2026-07-21"
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "category": "writing",
+      "price": "freemium",
+      "description": "xAI（Elon Musk）推出的 AI 助手，深度集成 X/Twitter 实时数据，支持 DeepSearch 深度研究、图像与视频生成，Grok 4.5 旗舰模型推理能力领先，免费版可用。",
+      "url": "https://grok.com",
+      "tags": ["对话", "xAI", "实时搜索", "多模态"],
+      "features": ["实时 X/Twitter 数据集成", "DeepSearch 深度研究", "图像与视频生成", "多模型可选", "语音对话模式"],
+      "addedDate": "2026-07-22"
+    },
+    {
+      "id": "tongyi-wanxiang",
+      "name": "通义万相",
+      "category": "image",
+      "price": "freemium",
+      "description": "阿里云推出的 AI 视觉生成平台，支持文生图、图像编辑、文生视频、图生视频、角色扮演等 10+ 种创作能力，万相 2.6 模型国内领先。",
+      "url": "https://tongyi.aliyun.com/wan/",
+      "tags": ["绘图", "视频", "阿里", "国内"],
+      "features": ["文生图与图像编辑", "文生视频与图生视频", "角色扮演视频生成", "分镜控制多镜头", "音画同步"],
+      "addedDate": "2026-07-22"
     }
   ]
 }

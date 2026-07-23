@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-22",
+  "lastUpdated": "2026-07-23",
   "tools": [
     {
       "id": "chatgpt",
@@ -15,7 +15,7 @@
       "name": "Claude",
       "category": "writing",
       "price": "freemium",
-      "description": "Anthropic 出品的对话 AI，擅长长文本理解、写作与代码生成，以安全与可控著称。",
+      "description": "Anthropic 出品的对话 AI，Claude Sonnet 5 支持 100 万 token 超长上下文，擅长长文本理解、写作、代码生成与深度研究，以安全与可控著称。",
       "url": "https://claude.ai",
       "tags": ["对话", "写作", "Anthropic"]
     },
@@ -289,6 +289,39 @@
       "tags": ["绘图", "视频", "阿里", "国内"],
       "features": ["文生图与图像编辑", "文生视频与图生视频", "角色扮演视频生成", "分镜控制多镜头", "音画同步"],
       "addedDate": "2026-07-22"
+    },
+    {
+      "id": "lm-studio-bionic",
+      "name": "LM Studio Bionic",
+      "category": "productivity",
+      "price": "free",
+      "description": "LM Studio 推出的本地 AI 智能体，专为开源模型设计，支持语音转录、代码搜索、文档处理与云端模型调用，覆盖创意、办公与编程场景。",
+      "url": "https://lmstudio.ai",
+      "tags": ["智能体", "开源模型", "本地", "生产力"],
+      "features": ["本地语音转录", "智能代码搜索", "沙盒文档处理", "开源模型安全云调用", "创意/办公/编程多场景"],
+      "addedDate": "2026-07-23"
+    },
+    {
+      "id": "gemini-notebook",
+      "name": "Gemini Notebook",
+      "category": "productivity",
+      "price": "freemium",
+      "description": "Google 将 NotebookLM 升级重命名后的 AI 研究与笔记工具，每本笔记本配备安全云计算机，可基于上传资料写代码、运行分析并生成带引用的研究报告。",
+      "url": "https://notebooklm.google.com",
+      "tags": ["笔记", "研究", "Google", "AI 笔记本"],
+      "features": ["基于资料生成研究报告", "每本笔记本配安全云计算机", "可写代码并运行分析", "音频摘要 Overview", "答案带资料引用"],
+      "addedDate": "2026-07-23"
+    },
+    {
+      "id": "qwen-image-3",
+      "name": "Qwen-Image-3.0",
+      "category": "image",
+      "price": "freemium",
+      "description": "阿里千问团队发布的第三代图像生成基础模型，支持 4.5K token 超长提示词，可一次生成复杂信息图、UI 界面、分镜等，支持 12 国语言与 20 余款字体原生渲染。",
+      "url": "https://qwen.ai",
+      "tags": ["绘图", "阿里", "千问", "图文生成"],
+      "features": ["4.5K token 超长提示词", "复杂信息图/UI 界面/分镜生成", "12 国语言原生渲染", "20 余款字体精准呈现", "生图编辑一体化"],
+      "addedDate": "2026-07-23"
     }
   ]
 }

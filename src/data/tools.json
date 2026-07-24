@@ -355,6 +355,28 @@
       "tags": ["语音", "TTS", "阿里", "千问", "国内"],
       "features": ["16 种语言与 20 种方言覆盖", "Flash 实时版首包 300ms 级延迟", "Plus 版登顶 Artificial Analysis TTS 榜", "自然语言风格控制", "细粒度非语言标签（笑声、吸气等）"],
       "addedDate": "2026-07-24"
+    },
+    {
+      "id": "meoo",
+      "name": "秒悟 Meoo",
+      "category": "productivity",
+      "price": "freemium",
+      "description": "阿里 ATH 事业群推出的零门槛 AI 应用创作平台，用户通过自然语言即可生成网站、H5、微信小程序等应用，并自动完成前后端编码、数据库配置与一键上云部署，支持团队协作与可视化编辑。",
+      "url": "https://meoo.com/",
+      "tags": ["无代码", "应用开发", "阿里", "国内"],
+      "features": ["自然语言生成网页/H5/小程序", "前后端代码自动生成", "一键云端部署", "可视化编辑与团队协作", "阿里云账号统一登录与额度管理"],
+      "addedDate": "2026-07-24"
+    },
+    {
+      "id": "seedream-5-0-pro",
+      "name": "Seedream 5.0 Pro",
+      "category": "image",
+      "price": "freemium",
+      "description": "字节跳动 Seed 团队发布的多模态图像创作模型，从普通文生图升级为专业设计级生成，擅长复杂信息图、UI 界面、数据可视化、电商海报与多语种文字渲染，支持交互式精准编辑。",
+      "url": "https://seed.bytedance.com/seedream5_0_pro",
+      "tags": ["绘图", "图像生成", "字节", "设计", "国内"],
+      "features": ["复杂信息图与 UI 一键生成", "交互式精准编辑（点选/圈选/图层分离）", "原生多语种文字渲染", "真实人像与商品质感", "4K 级商业图像输出"],
+      "addedDate": "2026-07-24"
     }
   ]
 }

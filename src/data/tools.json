@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-23",
+  "lastUpdated": "2026-07-24",
   "tools": [
     {
       "id": "chatgpt",
@@ -322,6 +322,39 @@
       "tags": ["绘图", "阿里", "千问", "图文生成"],
       "features": ["4.5K token 超长提示词", "复杂信息图/UI 界面/分镜生成", "12 国语言原生渲染", "20 余款字体精准呈现", "生图编辑一体化"],
       "addedDate": "2026-07-23"
+    },
+    {
+      "id": "ardot",
+      "name": "腾讯设计 Ardot",
+      "category": "design",
+      "price": "freemium",
+      "description": "腾讯自研的 AI 原生设计协作平台，支持自然语言或图片快速生成可编辑 UI 设计稿、矢量图标与配图，覆盖设计创作、团队协作、设计直转代码与资产管理全流程。",
+      "url": "https://ardot.tencent.com",
+      "tags": ["设计", "UI", "腾讯", "国内", "协作"],
+      "features": ["文/图生成可编辑 UI 设计稿", "批量生成统一风格图标与插画", "设计稿一键转代码（D2C）", "多人实时协作与评论标注", "Figma 文件导入与组件库复用"],
+      "addedDate": "2026-07-24"
+    },
+    {
+      "id": "seed-audio-1-0",
+      "name": "Seed Audio 1.0",
+      "category": "audio",
+      "price": "free",
+      "description": "字节跳动 Seed 团队发布的音频创作模型，在统一框架下联合建模人声、音效与环境声，支持端到端影视级音频创作，可生成约 2 分钟长音频并延展。",
+      "url": "https://seed.bytedance.com/seedaudio1_0",
+      "tags": ["音频", "语音", "音效", "字节", "国内"],
+      "features": ["人声/音效/环境声统一建模", "100ms 精度时间线控制", "零样本音色生成与长程延展", "20+ 语种自然迁移", "单次生成约 2 分钟音频"],
+      "addedDate": "2026-07-24"
+    },
+    {
+      "id": "qwen-audio-3-tts",
+      "name": "Qwen-Audio-3.0-TTS",
+      "category": "audio",
+      "price": "freemium",
+      "description": "阿里千问发布的语音合成大模型，Plus 版在第三方 TTS 榜单排名第一，支持 16 种语言、20 种方言，可用自然语言控制情绪、角色与语速，并嵌入 [gasp]/[angry] 等细粒度标签。",
+      "url": "https://qwen.ai",
+      "tags": ["语音", "TTS", "阿里", "千问", "国内"],
+      "features": ["16 种语言与 20 种方言覆盖", "Flash 实时版首包 300ms 级延迟", "Plus 版登顶 Artificial Analysis TTS 榜", "自然语言风格控制", "细粒度非语言标签（笑声、吸气等）"],
+      "addedDate": "2026-07-24"
     }
   ]
 }
